@@ -17,7 +17,14 @@ The goals / steps of this project are the following:
 
 ###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 6 steps. First, I create a mask of only lane lines by filtering out the grey road. Second, I applied grayscale to my image. Third, I apply gaussian blur with kernel size of 7.  Fourth, I apply canny edge detection. Fifth, I found the region of interest by masking out the area that does not include the lane lines.  Sixth, I found and draw hough lines.
+My pipeline consisted of 6 steps.
+
+1. I create a mask of only lane lines by filtering out the grey road.
+2. I applied grayscale to my image.
+3. I apply gaussian blur with kernel size of 7.
+4. I apply canny edge detection.
+5. I found the region of interest by masking out the area that does not include the lane lines.
+6. I found and draw hough lines.
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by first eliminating some noise that definitely do not fit as lane line, i.e. very close to be a horizontal line or vertical line.  Then I separate the remaining lines by positive and negative slope.  Once I separate all the points into two categories, I fit a straight line to the points that define the lines.  Then I draw the positive and negative sloped lines as the two lane lines, and mask out the excessive length of the lines. 
 
